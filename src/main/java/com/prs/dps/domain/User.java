@@ -3,7 +3,7 @@ package com.prs.dps.domain;
 /**
  * Created by ffulauh on 2016/6/4.
  */
-public class Poet {
+public class User {
     private Long id;
     private String username;
     private String password;

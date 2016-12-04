@@ -5,6 +5,6 @@
 <configuration>
     <typeAliases>
         <!--portal-->
-        <typeAlias type="com.prs.dps.domain.Poet" alias="poet"></typeAlias>
+        <typeAlias type="com.prs.dps.domain.User" alias="user"></typeAlias>
     </typeAliases>
 </configuration>
