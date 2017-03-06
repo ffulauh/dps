@@ -8,14 +8,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * Created by ffulauh on 2016/6/20.
  */
-@Controller
+@Controller("homeController")
 @RequestMapping("/")
 public class HomeController {
+
     @Autowired
     IUserService userService;
 
     @RequestMapping("")
-    public String toIndex() throws Exception{
+    public String toIndex() throws Exception {
         return "home";
     }
+
+    @RequestMapping("admin")
+    public String admin() throws Exception {
+        return "admin";
+    }
+
 }
