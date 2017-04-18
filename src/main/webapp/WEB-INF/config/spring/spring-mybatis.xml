@@ -41,7 +41,6 @@
         <property name="basePackage" value="com.prs.dps.dao"/>
         <!--单个数据源不用指定-->
         <!--<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />-->
-
         <!--直接制定了sqlsessionTemplate名称，这个和上面的其实是一样的 -->
          <property name="sqlSessionTemplateBeanName" value="sqlSession" />
     </bean>

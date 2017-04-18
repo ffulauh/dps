@@ -23,6 +23,7 @@ import java.util.List;
 @Controller
 @RequestMapping("user")
 public class UserController {
+
     @Autowired
     IUserService userService;
     //    @Autowired
@@ -46,7 +47,7 @@ public class UserController {
     @RequestMapping("/showUser")
     @ResponseBody
     public List showUser(HttpServletRequest request, Model model) throws Exception {
-
+        logger.info("我是{}", "韩少华");
         int userId = Integer.valueOf(request.getParameter("id"));
         List<String> userList = userService.getUserById(userId);
         model.addAttribute("user", userList.get(0));
