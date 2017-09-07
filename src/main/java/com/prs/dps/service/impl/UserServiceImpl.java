@@ -5,7 +5,6 @@ import com.prs.dps.domain.User;
 import com.prs.dps.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -16,8 +15,7 @@ import java.util.List;
 public class UserServiceImpl implements IUserService {
 
     @Autowired
-    IUserDao userDao;
-
+    private IUserDao userDao;
 
     public List<String> getUserById(Integer id) throws Exception {
         return userDao.getUserById(id);

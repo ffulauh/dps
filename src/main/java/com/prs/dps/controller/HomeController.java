@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class HomeController {
 
-    @Autowired
-    IUserService userService;
+//    @Autowired
+//    IUserService userService;
 
     @RequestMapping("")
     public String toIndex() throws Exception {

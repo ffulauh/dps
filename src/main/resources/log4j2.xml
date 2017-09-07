@@ -16,7 +16,7 @@
     <Loggers>
         <Root level="info">
             <AppenderRef ref="STDOUT"/>
-            <AppenderRef ref="FILE"/>
+            <!--<AppenderRef ref="FILE"/>-->
         </Root>
         <Logger name="com.prs.dps" level="debug" additivity="false">
             <AppenderRef ref="STDOUT"/>

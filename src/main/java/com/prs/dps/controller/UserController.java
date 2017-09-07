@@ -24,16 +24,17 @@ public class UserController extends BaseController {
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
-    IUserService userService;
+    private IUserService userService;
 
     @RequestMapping("/showUser")
     @ResponseBody
-    public List showUser(int id) throws Exception {
-        result = new Result();
+    public Result showUser(int id) throws Exception {
+        Result result=new Result();
+        logger.info(result.toString());
         List<String> userList = userService.getUserById(id);
-        result.setData(userList);
+        result.setData(id);
         result.setResultCode(Constants.SUCCESS);
-        return userList;
+        return result;
     }
 
 }
