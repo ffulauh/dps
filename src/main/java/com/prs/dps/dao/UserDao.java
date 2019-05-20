@@ -9,11 +9,11 @@ import java.util.List;
  * Created by ffulauh on 2016/6/4.
  */
 @Repository("userDao")
-public interface IUserDao {
+public interface UserDao {
 
-    List<String> getUserById(Integer id) throws Exception;
+    User getUserById(Integer id);
 
-    int saveUser(User user) throws Exception;
+    int saveUser(User user);
 
-    int updateUser(User user) throws Exception;
+    int updateUser(User user);
 }

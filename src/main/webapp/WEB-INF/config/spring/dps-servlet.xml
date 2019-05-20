@@ -39,6 +39,6 @@
     </bean>
 
     <!--处理对静态资源的请求-->
-    <!--<mvc:resources mapping="/resources/**" location="WEB-INF/resources"/>-->
+    <mvc:resources mapping="/resources/**" location="/resources/"/>
 
 </beans>

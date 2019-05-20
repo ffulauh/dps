@@ -1,9 +1,11 @@
 package com.prs.dps.domain;
 
+import java.io.Serializable;
+
 /**
  * Created by ffulauh on 2016/6/4.
  */
-public class User {
+public class User implements Serializable {
 
     private Long id;
     private String username;
@@ -11,13 +13,6 @@ public class User {
     private String fullName;
     private String email;
     private Integer updateByEmail;
-
-    public User(String username, String password, String fullName, String email) {
-        this.username = username;
-        this.password = password;
-        this.fullName = fullName;
-        this.email = email;
-    }
 
     public Long getId() {
         return id;
