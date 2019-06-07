@@ -40,7 +40,6 @@ public class UserServiceImpl implements UserService {
 
     @Transactional(readOnly = true)
     @Override
-
     public User getUserById(Integer id) {
         logger.info("hehehehhew");
         User user1=userDao.getUserById(id);

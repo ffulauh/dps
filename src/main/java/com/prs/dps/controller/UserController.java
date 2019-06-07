@@ -34,14 +34,14 @@ public class UserController extends BaseController {
     @ResponseBody
 //    @CrossOrigin(origins = "http://10.11.115.87:8080")
     public Result showUser(int id, HttpServletResponse response) throws Exception {
-        response.setHeader("Access-Control-Allow-Origin","*");
+//        response.setHeader("Access-Control-Allow-Origin","*");
         Result result=new Result();
         logger.info(result.toString());
-//        User han = userService.getUserById(id);
-//        User han2 = userService.getUserByIdNonTransaction(id);
-        User han=new User();
-        han.setEmail("email");
-        han.setFullName("hanshoahua");
+        User han = userService.getUserById(id);
+        User han2 = userService.getUserByIdNonTransaction(id);
+//        User han=new User();
+//        han.setEmail("email");
+//        han.setFullName("hanshoahua");
         result.setData(han);
         result.setResultCode(Constants.SUCCESS);
         return result;
