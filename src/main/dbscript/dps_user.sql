@@ -9,5 +9,5 @@ CREATE TABLE user
   updateByEmail TINYINT(1) DEFAULT '0' NOT NULL
 );
 
-UPDATE dps.user SET username = 'hsh', password = '02042018', fullName = '韩少华', email = 'hshua24@gmail.com', updateByEmail = 0 WHERE id = 1;
-UPDATE dps.user SET username = 'steve', password = '22222', fullName = '乔布斯', email = 'steve@apple.com', updateByEmail = 0 WHERE id = 2;
+INSERT INTO dps.user (username, password, fullName, email, updateByEmail) VALUES ('hsh', '02042018', '韩少华', 'hshua24@gmail.com', 0);
+INSERT INTO dps.user (username, password, fullName, email, updateByEmail) VALUES ('steve', '22222', '乔布斯', 'steve@apple.com', 0);
