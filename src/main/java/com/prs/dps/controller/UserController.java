@@ -31,19 +31,36 @@ public class UserController extends BaseController {
     @Autowired
     private UserService userService;
 
+
+
     @RequestMapping(value = "/showUserWithCors")
     @ResponseBody
 //    @CrossOrigin(origins = "http://localhost:8080")
     public Result showUserWithCors(int id, HttpServletResponse response) throws Exception {
-        response.setHeader("Access-Control-Allow-Origin","http://localhost:8080");
+//        response.setHeader("Access-Control-Allow-Origin","http://localhost:8080");
+//        Result result=new Result();
+//        logger.error("hehe");
+//        User han = userService.getUserById(id);
+//        User han2 = userService.getUserByIdNonTransaction(id);
+////        User han=new User();
+////        han.setEmail("email");
+////        han.setFullName("hanshoahua");
+//        result.setData(han);
+//        result.setResultCode(Constants.SUCCESS);
+
         Result result=new Result();
-        logger.error("hehe");
-        User han = userService.getUserById(id);
-        User han2 = userService.getUserByIdNonTransaction(id);
+        User han=new User();
+        han.setId(id);
+//        han.setUpdateByEmail(1);
+//        han.setFullName(Thread.currentThread().getName());
+//        logger.error("hehe");
+//        User han = userService.getUserById(id);
+//        User han2 = userService.getUserByIdNonTransaction(id);
 //        User han=new User();
 //        han.setEmail("email");
 //        han.setFullName("hanshoahua");
-        result.setData(han);
+//        result.setData(han);
+        userService.getUserById(id);
         result.setResultCode(Constants.SUCCESS);
         return result;
     }
@@ -53,13 +70,18 @@ public class UserController extends BaseController {
 //    @CrossOrigin(origins = "http://localhost:8080")
     public Result showUser(int id) throws Exception {
         Result result=new Result();
-        logger.error("hehe");
-        User han = userService.getUserById(id);
-        User han2 = userService.getUserByIdNonTransaction(id);
+        User han=new User();
+        han.setId(id);
+//        han.setUpdateByEmail(1);
+//        han.setFullName(Thread.currentThread().getName());
+//        logger.error("hehe");
+//        User han = userService.getUserById(id);
+//        User han2 = userService.getUserByIdNonTransaction(id);
 //        User han=new User();
 //        han.setEmail("email");
 //        han.setFullName("hanshoahua");
-        result.setData(han);
+//        result.setData(han);
+        userService.updateUser(han);
         result.setResultCode(Constants.SUCCESS);
         return result;
     }

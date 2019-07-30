@@ -6,7 +6,7 @@
 
     <!--启动缓存-->
     <!--<cache/>-->
-    <cache type="org.mybatis.caches.redis.RedisCache" />
+    <!--<cache type="org.mybatis.caches.redis.RedisCache" />-->
 
     <resultMap id="userResultMap" type="user">
         <id property="id" column="id" />

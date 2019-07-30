@@ -11,11 +11,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.data.redis.core.ListOperations;
 //import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Created by ffulauh on 2016/6/4.
@@ -38,16 +41,13 @@ public class UserServiceImpl implements UserService {
 //    @Resource(name="redisTemplate")
 //    private ListOperations<String, String> listOps;
 
-    @Transactional(readOnly = true)
+    @Transactional
     @Override
     public User getUserById(Integer id) {
         logger.info("hehehehhew");
         User user1=userDao.getUserById(id);
-        User user2=userDao.getUserById(id);
-        UserDao userDao2=sqlSessionTemplate.getMapper(UserDao.class);
-        User user3=userDao.getUserById(id);
-        User user4=userDao2.getUserById(id);
-        User user5=userDao2.getUserById(id);
+        user1.setUpdateByEmail(1);
+        int i= userDao.updateUser(user1);
         return user1;
     }
 
@@ -66,8 +66,45 @@ public class UserServiceImpl implements UserService {
         return userDao.saveUser(user);
     }
 
+    //可重复读测试,不能发生不可重复读
+//    @Transactional(isolation = Isolation.REPEATABLE_READ)
+//    public int updateUser(User user) {
+//        User han = userDao.getUserById(user.getId());
+//        sqlSessionTemplate.clearCache();
+//        User han2 = userDao.getUserById(user.getId());
+//        System.out.println("hehe");
+//        user.setUpdateByEmail(1);
+//        int i= userDao.updateUser(user);
+//        System.out.println("hehe");
+//        return 1;
+//    }
+
+
+//    //读提交测试
+//    @Transactional(isolation = Isolation.READ_COMMITTED)
+//    public int updateUser(User user) {
+//        User han = userDao.getUserById(user.getId());
+//        sqlSessionTemplate.clearCache();
+//        User han2 = userDao.getUserById(user.getId());
+//        System.out.println("hehe");
+//        user.setUpdateByEmail(1);
+//        int i= userDao.updateUser(user);
+//        System.out.println("hehe");
+//        return 1;
+//    }
+    //解决抢单问题
+    @Transactional(isolation = Isolation.READ_UNCOMMITTED)
     public int updateUser(User user) {
-        return userDao.updateUser(user);
+        System.out.println("hehe");
+        synchronized (this){
+            User han = userDao.getUserById(user.getId());
+            if(han.getUpdateByEmail().equals(0)){
+                user.setUpdateByEmail(1);
+                int i= userDao.updateUser(user);
+            }
+        }
+        System.out.println("hehe");
+        return 1;
     }
 
 }
