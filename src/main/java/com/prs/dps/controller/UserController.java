@@ -81,7 +81,7 @@ public class UserController extends BaseController {
 //        han.setEmail("email");
 //        han.setFullName("hanshoahua");
 //        result.setData(han);
-        userService.updateUser(han);
+//        userService.updateUser(han);
         result.setResultCode(Constants.SUCCESS);
         return result;
     }

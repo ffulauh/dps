@@ -28,6 +28,9 @@
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+    <listener>
+        <listener-class>com.prs.dps.common.listener.MyDataContextListener</listener-class>
+    </listener>
 
     <!--param-name不能改-->
     <!--如果spring-mvc配置文件改成dps-servlet且xml文件在WEB-INF目录下，可以不加<init-param>-->

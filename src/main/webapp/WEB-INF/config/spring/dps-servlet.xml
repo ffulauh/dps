@@ -38,6 +38,16 @@
         <property name="maxInMemorySize" value="40960" />
     </bean>
 
+
+    <bean id="SsTestController" class="com.prs.dps.controller.SsTestController"/>
+    <bean id="simpleUrlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="/userlist.htm">SsTestController</prop>
+            </props>
+        </property>
+    </bean>
+
     <!--处理对静态资源的请求-->
     <mvc:resources mapping="/resources/**" location="/resources/"/>
 
