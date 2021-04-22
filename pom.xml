@@ -12,7 +12,7 @@
         <!--lib version-->
         <spring.version>4.2.6.RELEASE</spring.version>
         <spring-security.version>4.2.1.RELEASE</spring-security.version>
-        <mybatis.version>3.4.0</mybatis.version>
+        <mybatis.version>3.5.6</mybatis.version>
         <junit.version>4.11</junit.version>
         <mysql.version>5.1.38</mysql.version>
         <commons-dbcp.version>1.4</commons-dbcp.version>
