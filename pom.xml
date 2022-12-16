@@ -10,7 +10,7 @@
 
     <properties>
         <!--lib version-->
-        <spring.version>4.2.6.RELEASE</spring.version>
+        <spring.version>5.2.20.RELEASE</spring.version>
         <spring-security.version>4.2.1.RELEASE</spring-security.version>
         <mybatis.version>3.4.0</mybatis.version>
         <junit.version>4.11</junit.version>
